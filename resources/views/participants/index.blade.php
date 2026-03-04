@@ -16,4 +16,9 @@
     <hr>
     @endforeach
 
+
+
+
+    {{-- @dump($participants ) --}}
+
     @endsection
