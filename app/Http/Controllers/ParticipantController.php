@@ -13,11 +13,39 @@ class ParticipantController extends Controller
     public function index()
     {
 
-        $participants = Participant::where("age" , "23")->get();
+        $participants = Participant::all();
 
         // dd($participants);
 
 
         return view("participants.index", compact("participants"));
     }
+
+
+    public function store(Request $request)
+    {
+
+
+        $request->validate([
+            "name" => "required",
+            "age" => "required",
+            "phone" => "required",
+            "cin" => "required",
+        ]);
+
+
+
+        Participant::create([
+
+        "name" =>  $request->name,
+        "age" =>  $request->age,
+        "phone" =>  $request->phone,
+        "cin" =>  $request->cin,
+        ]);
+
+
+
+        return redirect()->back();
+
+        }
 }

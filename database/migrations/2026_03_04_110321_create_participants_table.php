@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("name");
             $table->integer("age");
             $table->string("phone");
+            // $table->string("cin");
             $table->timestamps();
         });
     }

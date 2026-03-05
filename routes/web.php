@@ -19,4 +19,5 @@ Route::get("/student",  [StudentController::class, "index"]);
 Route::get("/" , [HomeController::class , "index"]);
 
 
-Route::get("/participants" , [ParticipantController::class , "index"]);
+Route::get("/participants" , [ParticipantController::class , "index"])->name("participant");
+Route::post("/participant/store" , [ParticipantController::class , "store"])->name("participant.store");
