@@ -14,13 +14,27 @@
 
 
 
-    @include('layouts.partials.navbar')
-    
 
-    @yield('content')
+    <div class="h-screen overflow-hidden flex ">
+
+        <div class="w-1/5 h-full bg-amber-900">
+
+        </div>
+
+        <div class="w-4/5 bg-white overflow-y-auto ">
+
+            {{-- navbar --}}
+            @include('layouts.partials.navbar')
+
+            <div class="p-5">
+                @yield('content')
+
+            </div>
+        </div>
+    </div>
 
 
-    @include('layouts.partials.footer')
+    {{-- @include('layouts.partials.footer') --}}
 
 
 

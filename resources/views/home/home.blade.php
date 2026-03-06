@@ -4,8 +4,13 @@
 
 @section("content")
 
-<h1 class="text-red-400 text-7xl">dqhsfjhfsdhq</h1>
+<div class="h-screen bg-amber-950 flex items-center justify-center">
 
-<a href="{{ route("participant") }}">move to participant</a>
+
+    <h1 class="text-amber-400 text-xl">Project active </h1>
+</div>
+
+
+
 
 @endsection

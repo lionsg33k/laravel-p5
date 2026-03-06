@@ -8,15 +8,10 @@ class StudentController extends Controller
 {
     //
 
-
-    public function index()
+    public function  index()
     {
 
 
-        $fullName = "mehdi forkani";
-        $age = 25;
-        
-
-        return view("student.index" , compact("fullName" , "age"));
+        return view("student.index");
     }
 }
