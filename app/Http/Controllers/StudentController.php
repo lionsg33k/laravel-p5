@@ -52,9 +52,22 @@ class StudentController extends Controller
     }
 
 
-    public function show(Student $student) {
+    public function show(Student $student)
+    {
 
 
-    return view("student.student_show" , compact("student"));
+        return view("student.student_show", compact("student"));
+    }
+
+
+
+
+    public function destroy(Student $student)
+    {
+
+
+        $student->delete();
+
+        return back();
     }
 }
