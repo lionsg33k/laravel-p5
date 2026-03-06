@@ -31,40 +31,48 @@
         </div>
 
         <!-- Body -->
-        <form class="space-y-5 px-6 py-5">
+        <form action="/student/store" method="POST" class="space-y-5 px-6 py-5">
+            @csrf
 
             <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
 
                 <div class="sm:col-span-2">
                     <label class="block text-sm font-medium text-gray-700">Full name</label>
-                    <input type="text"
+                    <input type="text" name="name"
                         class="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-gray-900 shadow-sm focus:border-alpha focus:outline-none focus:ring-1 focus:ring-alpha"
                         placeholder="e.g. Jane Doe">
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email"
+                    <input type="email" name="email"
                         class="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-gray-900 shadow-sm focus:border-alpha focus:outline-none focus:ring-1 focus:ring-alpha"
                         placeholder="jane@example.com">
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Birthday</label>
-                    <input type="date"
+                    <input type="date" name="birthday"
                         class="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-gray-900 shadow-sm focus:border-alpha focus:outline-none focus:ring-1 focus:ring-alpha">
                 </div>
 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Training</label>
-                    <input type="text"
+                <div class="col-span-2">
+                    <label class="block col-span-2 text-sm font-medium text-gray-700">Training</label>
+
+                    <select
                         class="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-gray-900 shadow-sm focus:border-alpha focus:outline-none focus:ring-1 focus:ring-alpha"
-                        placeholder="e.g. Web Development">
+                        name="training" id="">
+
+                        <option selected disabled value="coding">Pick a training</option>
+                        <option value="coding">coding</option>
+                        <option value="lakhrin">lakhrin</option>
+
+                    </select>
                 </div>
 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Progress (%)</label>
-                    <input type="number"
+                <div class="col-span-2">
+                    <label class="block  text-sm font-medium text-gray-700">Progress (%)</label>
+                    <input type="range" name="progress"
                         class="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-gray-900 shadow-sm focus:border-alpha focus:outline-none focus:ring-1 focus:ring-alpha"
                         placeholder="0">
                 </div>
@@ -74,12 +82,12 @@
 
                     <div class="mt-2 flex gap-6">
                         <label class="inline-flex cursor-pointer items-center gap-2">
-                            <input type="radio" class="h-4 w-4 border-gray-300 text-alpha focus:ring-alpha">
+                            <input value="male" name="gender" type="radio" class="h-4 w-4 border-gray-300 text-alpha focus:ring-alpha">
                             <span class="text-sm text-gray-700">Male</span>
                         </label>
 
                         <label class="inline-flex cursor-pointer items-center gap-2">
-                            <input type="radio" class="h-4 w-4 border-gray-300 text-alpha focus:ring-alpha">
+                            <input value="female" name="gender" type="radio" class="h-4 w-4 border-gray-300 text-alpha focus:ring-alpha">
                             <span class="text-sm text-gray-700">Female</span>
                         </label>
                     </div>
@@ -87,7 +95,7 @@
 
                 <div class="sm:col-span-2">
                     <label class="inline-flex cursor-pointer items-center gap-3">
-                        <input type="checkbox" class="h-4 w-4 rounded border-gray-300 text-alpha focus:ring-alpha">
+                        <input name="policy" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-alpha focus:ring-alpha">
                         <span class="text-sm font-medium text-gray-700">Accepts policy</span>
                     </label>
                 </div>
@@ -102,7 +110,7 @@
                     Cancel
                 </label>
 
-                <button type="button"
+                <button type="submit"
                     class="inline-flex justify-center rounded-lg bg-alpha px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-alpha/90">
                     Create Student
                 </button>

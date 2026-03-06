@@ -29,3 +29,5 @@ Route::get("/particpant/show/{participant}", [ParticipantController::class, "sho
 
 
 Route::get("/student" , [StudentController::class , "index"])->name("student");
+Route::post("/student/store" , [StudentController::class , "store"]);
+Route::get("/student/{student}/show/" , [StudentController::class , "show"])->name("student.show");
