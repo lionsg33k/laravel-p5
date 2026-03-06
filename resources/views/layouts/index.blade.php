@@ -17,9 +17,7 @@
 
     <div class="h-screen overflow-hidden flex ">
 
-        <div class="w-1/5 h-full bg-amber-900">
-
-        </div>
+        <x-sidebar />
 
         <div class="w-4/5 bg-white overflow-y-auto ">
 
