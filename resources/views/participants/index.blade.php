@@ -10,8 +10,12 @@
 
 
     @foreach ($participants as $participant)
-        <h1>{{ $participant->name }}</h1>
-        <hr>
+      
+    <div class="p-6 border">
+
+        <a href="{{ route("participant.show" , $participant) }}">{{ $participant->name }}</a>
+        <a href="/particpant/show/{{ $participant->id }}">{{ $participant->name }}</a>
+    </div>
     @endforeach
 
 

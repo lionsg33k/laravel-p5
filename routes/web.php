@@ -21,3 +21,4 @@ Route::get("/" , [HomeController::class , "index"]);
 
 Route::get("/participants" , [ParticipantController::class , "index"])->name("participant");
 Route::post("/participant/store" , [ParticipantController::class , "store"])->name("participant.store");
+Route::get("/particpant/show/{participant}" , [ParticipantController::class , "show"])->name("participant.show");

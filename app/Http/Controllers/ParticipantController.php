@@ -37,15 +37,21 @@ class ParticipantController extends Controller
 
         Participant::create([
 
-        "name" =>  $request->name,
-        "age" =>  $request->age,
-        "phone" =>  $request->phone,
-        "cin" =>  $request->cin,
+            "name" =>  $request->name,
+            "age" =>  $request->age,
+            "phone" =>  $request->phone,
+            "cin" =>  $request->cin,
         ]);
 
 
 
         return redirect()->back();
+    }
 
-        }
+    public function show(Participant $participant)
+    {
+
+
+        return view("participants.show" , compact("participant") );
+    }
 }
