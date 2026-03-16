@@ -4,6 +4,7 @@
     $navItems = [
         ['label' => 'Home', 'url' => url('/'), 'route' => null],
         ['label' => 'Participants', 'url' => route('participant'), 'route' => 'participant*'],
+        ['label' => 'Images', 'url' => url('/images-crud'), 'route' => "files.images"],
         ['label' => 'Students', 'url' => route('student'), 'route' => 'student'],
     ];
 @endphp
