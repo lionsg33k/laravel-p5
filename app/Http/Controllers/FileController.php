@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
@@ -17,7 +18,7 @@ class FileController extends Controller
         $images =  File::all();
 
         // dd($images);
-        return view("files.images" , compact("images"));
+        return view("files.images", compact("images"));
     }
 
     public function store(Request $request)
@@ -38,5 +39,25 @@ class FileController extends Controller
         ]);
 
         return back()->with("success", "image  stored   successfully ");
+    }
+
+
+
+
+    public function destroy(File $file)
+    {
+
+
+        $path = $file->images;
+        $storage = Storage::disk("public");
+        // dd($storage);
+
+        if ($storage->exists($path)) {
+            $storage->delete($path);
+            
+            $file->delete();
+        }
+
+        return back();
     }
 }

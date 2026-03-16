@@ -42,4 +42,5 @@ Route::put("/student/{student}/update" , [StudentController::class , "update"]);
 
 Route::get("/images-crud" , [FileController::class  , "index"])->name("files.index");
 Route::post("/images/store" , [FileController::class  , "store"])->name("files.store");
+Route::delete("/images/{file}/destroy" , [FileController::class  , "destroy"])->name("files.destroy");
 
