@@ -21,6 +21,11 @@ class FileController extends Controller
         return view("files.images", compact("images"));
     }
 
+
+
+
+
+
     public function store(Request $request)
     {
 
@@ -29,10 +34,10 @@ class FileController extends Controller
         ]);
 
 
+
+        // * easy method
         $myFile =  $request->file("file")->store("images", "public");
 
-
-        // dd($myFile);
 
         File::create([
             "images" => $myFile
@@ -42,6 +47,30 @@ class FileController extends Controller
     }
 
 
+
+    public function update(Request $request, File $file)
+    {
+
+    // dd($request->all());
+        request()->validate([
+            "file" => "file|mimes:png,jpg|max:2048"
+        ]);
+
+        $path = $file->images;
+        $storage = Storage::disk("public");
+        // dd($storage);
+
+        if ($storage->exists($path)) {
+            $storage->delete($path);
+            $newFile = request()->file('file')->store("images", "public");
+
+            $file->update([
+                "images" => $newFile
+            ]);
+        }
+
+        return back();
+    }
 
 
     public function destroy(File $file)
@@ -54,7 +83,6 @@ class FileController extends Controller
 
         if ($storage->exists($path)) {
             $storage->delete($path);
-            
             $file->delete();
         }
 

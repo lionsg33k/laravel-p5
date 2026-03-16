@@ -22,6 +22,14 @@
 
                     <div class=""></div>
 
+                    <form enctype="multipart/form-data" action="/images/{{ $image->id }}/update" method="POST">
+                        @csrf
+                        @method('PUT')
+
+                        <input type="file" name="file" accept="image/*">
+                        <button>update</button>
+
+                    </form>
 
                     <form action="/images/{{ $image->id }}/destroy" method="POST">
                         @csrf
