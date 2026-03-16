@@ -23,6 +23,7 @@
 
             {{-- navbar --}}
             @include('layouts.partials.navbar')
+            @include('layouts.partials.flasher')
 
             <div class="p-5">
                 @yield('content')

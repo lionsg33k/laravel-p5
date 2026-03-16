@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
+use function Flasher\Prime\flash;
+
 class StudentController extends Controller
 {
     //
@@ -54,6 +56,7 @@ class StudentController extends Controller
             "progress" =>  $request->progress,
         ]);
 
+        flash()->success("hhhh");
         return back();
     }
 
@@ -99,7 +102,7 @@ class StudentController extends Controller
             "progress" =>  $request->progress,
         ]);
 
-        return back();
+        return back()->with("success" , "Student Updated Successfully");
     }
 
 
