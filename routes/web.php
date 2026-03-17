@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [HomeController::class, "index"]);
 
+
 // * participants
 
 Route::get("/participants", [ParticipantController::class, "index"])->name("participant");
@@ -44,4 +45,7 @@ Route::get("/images-crud" , [FileController::class  , "index"])->name("files.ind
 Route::post("/images/store" , [FileController::class  , "store"])->name("files.store");
 Route::put("/images/{file}/update" , [FileController::class  , "update"])->name("files.update");
 Route::delete("/images/{file}/destroy" , [FileController::class  , "destroy"])->name("files.destroy");
+
+
+
 

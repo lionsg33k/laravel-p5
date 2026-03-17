@@ -154,6 +154,8 @@
                         </tr>
                     @endforelse
 
+                    <div>{{ $students->links() }}</div>
+
 
                 </tbody>
 

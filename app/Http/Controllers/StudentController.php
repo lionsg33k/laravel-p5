@@ -14,7 +14,7 @@ class StudentController extends Controller
     public function  index()
     {
 
-        $students = Student::all();
+        $students = Student::paginate(5);
 
         // dd($students[0]->birthday->format("d-m-y"));
 
