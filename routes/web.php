@@ -3,6 +3,7 @@
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ParticipantController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,4 +49,4 @@ Route::delete("/images/{file}/destroy" , [FileController::class  , "destroy"])->
 
 
 
-
+Route::resource("posts" , PostController::class);

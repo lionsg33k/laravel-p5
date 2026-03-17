@@ -19,7 +19,8 @@
             </div>
 
             <div class="min-w-0 flex-1">
-                <form action="#" method="POST" class="space-y-3">
+                <form action="/posts" method="POST" class="space-y-3">
+                    @csrf
                     <textarea rows="2" placeholder="What's on your mind?"
                         class="block w-full resize-none rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-alpha focus:bg-white focus:outline-none focus:ring-1 focus:ring-alpha"></textarea>
 
@@ -28,9 +29,10 @@
                             <span class="text-sm text-gray-500">Post as</span>
                             <select
                                 class="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm text-gray-700 focus:border-alpha focus:outline-none focus:ring-1 focus:ring-alpha">
-                                <option>John Doe</option>
-                                <option>Jane Smith</option>
-                                <option>Ali Ahmed</option>
+                              
+                                @foreach ($students as $student)
+                                    <option value="">{{ $student->name }}</option>
+                                @endforeach
                             </select>
                         </div>
 
