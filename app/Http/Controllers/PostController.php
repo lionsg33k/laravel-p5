@@ -16,8 +16,9 @@ class PostController extends Controller
         //
 
         $students = Student::all();
+        $posts = Post::orderBy("created_at" , "desc")->get();
 
-        return view("posts.index" , compact("students"));
+        return view("posts.index" , compact("students" , "posts"));
     }
 
     /**
@@ -34,7 +35,20 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
-        dd("j");
+        // dd($request->all());
+
+        request()->validate([
+            "post" => "required",
+            "student_id" => "required"
+        ]);
+
+
+        Post::create([
+            "post" => $request->post,
+            "student_id" => $request->student_id,
+        ]);
+
+        return back();
     }
 
     /**
