@@ -32,7 +32,8 @@
             </div>
         </div>
 
-        <div class="max-h-[72vh] overflow-y-auto px-6 py-6 space-y-8">
+        <form action="/courses" method="POST" class="max-h-[72vh] overflow-y-auto px-6 py-6 space-y-8">
+            @csrf
             {{-- Step 1: select students --}}
             <section>
                 <div class="mb-4 flex items-center justify-between">
@@ -121,7 +122,9 @@
                 </div>
             </section>
             --}}
-        </div>
+
+            <button>hghjgjhgjhgjhgjh</button>
+        </form>
 
         <div class="flex flex-col-reverse gap-3 border-t border-gray-200 px-6 py-4 sm:flex-row sm:justify-between">
             <label for="assign-fields-modal"
