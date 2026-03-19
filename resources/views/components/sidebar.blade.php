@@ -5,7 +5,8 @@
         ['label' => 'Home', 'url' => url('/'), 'route' => null],
         ['label' => 'Participants', 'url' => route('participant'), 'route' => 'participant*'],
         ['label' => 'Posts', 'url' => route('posts.index'), 'route' => 'posts*'],
-        ['label' => 'Images', 'url' => url('/images-crud'), 'route' => "files.images"],
+        ['label' => 'Courses', 'url' => route('courses.index'), 'route' => 'courses.*'],
+        ['label' => 'Images', 'url' => route('files.index'), 'route' => 'files.*'],
         ['label' => 'Students', 'url' => route('student'), 'route' => 'student'],
     ];
 @endphp

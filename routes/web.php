@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ParticipantController;
@@ -50,3 +51,7 @@ Route::delete("/images/{file}/destroy" , [FileController::class  , "destroy"])->
 
 
 Route::resource("posts" , PostController::class);
+
+// * courses (UI only)
+
+Route::resource("courses" , CourseController::class);
