@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <form id="hh" action="/courses" method="POST" class="max-h-[72vh] overflow-y-auto px-6 py-6 space-y-8">
+        <form id="attaching"  action="/assign-student" method="POST" class="max-h-[72vh] overflow-y-auto px-6 py-6 space-y-8">
             @csrf
             {{-- Step 1: select students --}}
             <section>
@@ -44,7 +44,7 @@
                     @foreach ($students as $student)
                         <label
                             class="group relative cursor-pointer rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition hover:border-alpha/40 hover:shadow-md">
-                            <input type="checkbox" name="student_ids[]" value="{{ $student['id'] }}" class="peer sr-only">
+                            <input type="checkbox" name="student_id[]"  value="{{ $student['id'] }}" class="peer sr-only">
                             <div
                                 class="absolute right-3 top-3 flex h-5 w-5 items-center justify-center rounded border border-gray-300 text-transparent transition peer-checked:border-alpha peer-checked:bg-alpha peer-checked:text-white">
                                 <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -86,19 +86,20 @@
                     @foreach ($fields as $field)
                         <label
                             class="cursor-pointer rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm font-medium text-gray-700 transition hover:border-alpha/40 hover:text-alpha">
-                            <input type="checkbox" name="field_ids[]" value="{{ $field['id'] }}" class="mr-2 h-4 w-4 rounded border-gray-300 text-alpha focus:ring-alpha">
+                            <input type="checkbox" name="course_id[]"  value="{{ $field['id'] }}" class="mr-2 h-4 w-4 rounded border-gray-300 text-alpha focus:ring-alpha">
                             {{ $field['name'] }}
                         </label>
                     @endforeach
                 </div>
 
-                <form action="/courses" method="POST" class="mt-5 border-t border-gray-200 pt-4">
+                <form id="courses" action="/courses" method="POST" class="mt-5 border-t border-gray-200 pt-4">
                     @csrf
                     <label class="block text-xs font-semibold uppercase tracking-wide text-gray-500">Create non-existing field</label>
                     <div class="mt-2 flex flex-col gap-2 sm:flex-row">
                         <input type="text" placeholder="e.g. Cloud Security" name="name"
                             class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm text-gray-900 shadow-sm focus:border-alpha focus:outline-none focus:ring-1 focus:ring-alpha">
-                        <button
+                        <button 
+                        form="courses"
                             class="rounded-lg border border-alpha bg-alpha/10 px-4 py-2.5 text-sm font-semibold text-alpha transition hover:bg-alpha hover:text-white">
                             Add Field
                         </button>
@@ -123,7 +124,6 @@
             </section>
             --}}
 
-            <button form="hh">hghjgjhgjhgjhgjh</button>
         </form>
 
         <div class="flex flex-col-reverse gap-3 border-t border-gray-200 px-6 py-4 sm:flex-row sm:justify-between">
@@ -136,7 +136,7 @@
                     class="rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50">
                     Next Step
                 </button>
-                <button type="button"
+                <button form="attaching"
                     class="rounded-lg bg-alpha px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-alpha/90 focus:outline-none focus:ring-2 focus:ring-alpha focus:ring-offset-2">
                     Save Selection
                 </button>

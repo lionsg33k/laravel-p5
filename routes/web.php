@@ -55,3 +55,5 @@ Route::resource("posts" , PostController::class);
 // * courses (UI only)
 
 Route::resource("courses" , CourseController::class);
+
+Route::post("/assign-student" , [CourseController::class , "assignStudent"]);

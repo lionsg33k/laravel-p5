@@ -17,7 +17,7 @@ class CourseController extends Controller
 
         $fields = Course::all();
         $students = Student::all();
-        return view("courses.index" , compact("fields" , "students"));
+        return view("courses.index", compact("fields", "students"));
     }
 
     /**
@@ -36,16 +36,16 @@ class CourseController extends Controller
         //
 
         dd($request->all());
-
+        
         request()->validate([
             "name" => "required|unique:courses,name"
-        ]);
-
+            ]);
+            
         Course::create([
             "name" => $request->name
         ]);
 
-        return back()->with("success" , "Course created successfully");
+        return back()->with("success", "Course created successfully");
     }
 
     /**
@@ -78,5 +78,29 @@ class CourseController extends Controller
     public function destroy(Course $course)
     {
         //
+    }
+
+
+    public function assignStudent(Request $request)
+    {
+        dd("j");
+
+
+        $request->validate([
+
+            "student_id" => "required|array",
+            "course_id" => "required|array",
+        ]);
+
+
+        $students = Student::whereIn("id", $request->student_id)->get();
+
+
+        foreach ($students as $student) {
+
+            $student->courses()->attach(1);
+        }
+
+        return back();
     }
 }

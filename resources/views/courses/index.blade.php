@@ -1,16 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
-    @php
 
-        $courseRows = [
-            ['field' => 'Laravel', 'students' => ['Alex Rivera', 'Omar Aziz', 'Lina Costa'], 'level' => 'Advanced', 'hours' => 48],
-            ['field' => 'SQL', 'students' => ['Jordan Lee', 'Nina Patel'], 'level' => 'Intermediate', 'hours' => 32],
-            ['field' => 'UI/UX Design', 'students' => ['Sam Chen', 'Lina Costa'], 'level' => 'Advanced', 'hours' => 40],
-            ['field' => 'REST APIs', 'students' => ['Alex Rivera', 'Jordan Lee', 'Omar Aziz'], 'level' => 'Intermediate', 'hours' => 28],
-            ['field' => 'Testing', 'students' => ['Nina Patel', 'Sam Chen'], 'level' => 'Beginner', 'hours' => 20],
-        ];
-    @endphp
 
     <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between py-2">
         <div>
@@ -52,13 +43,13 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 bg-white">
-                    @foreach ($courseRows as $row)
+                    @foreach ($fields as $row)
                         <tr class="transition hover:bg-gray-50/80">
-                            <td class="whitespace-nowrap px-5 py-4 text-sm font-semibold text-gray-900">{{ $row['field'] }}</td>
+                            <td class="whitespace-nowrap px-5 py-4 text-sm font-semibold text-gray-900">{{ $row->name }}</td>
                             <td class="px-5 py-4">
                                 <div class="flex flex-wrap gap-2">
-                                    @foreach ($row['students'] as $studentName)
-                                        <span class="inline-flex rounded-full bg-alpha/10 px-2.5 py-1 text-xs font-medium text-alpha">{{ $studentName }}</span>
+                                    @foreach ($row->students as $studentName)
+                                        <span class="inline-flex rounded-full bg-alpha/10 px-2.5 py-1 text-xs font-medium text-alpha">{{ $studentName->name }}</span>
                                     @endforeach
                                 </div>
                             </td>

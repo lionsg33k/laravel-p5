@@ -20,4 +20,13 @@ class Student extends Model
 
         return $this->hasMany(Post::class);
     }
+
+
+
+    public function courses()
+    {
+
+
+        return $this->belongsToMany(Course::class)->withPivot("course_student");
+    }
 }

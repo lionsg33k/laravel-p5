@@ -56,7 +56,7 @@ class StudentController extends Controller
             "progress" =>  $request->progress,
         ]);
 
-        flash()->success("hhhh");
+        // flash()->success("hhhh");
         return back();
     }
 
