@@ -83,7 +83,7 @@ class CourseController extends Controller
 
     public function assignStudent(Request $request)
     {
-        dd("j");
+        // dd("j");
 
 
         $request->validate([
@@ -98,7 +98,7 @@ class CourseController extends Controller
 
         foreach ($students as $student) {
 
-            $student->courses()->attach(1);
+            $student->courses()->attach($request->course_id);
         }
 
         return back();
