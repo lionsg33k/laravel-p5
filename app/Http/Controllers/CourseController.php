@@ -35,7 +35,7 @@ class CourseController extends Controller
     {
         //
 
-        // dd($request->all())
+        dd($request->all());
 
         request()->validate([
             "name" => "required|unique:courses,name"

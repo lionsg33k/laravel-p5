@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <form action="/courses" method="POST" class="max-h-[72vh] overflow-y-auto px-6 py-6 space-y-8">
+        <form id="hh" action="/courses" method="POST" class="max-h-[72vh] overflow-y-auto px-6 py-6 space-y-8">
             @csrf
             {{-- Step 1: select students --}}
             <section>
@@ -123,7 +123,7 @@
             </section>
             --}}
 
-            <button>hghjgjhgjhgjhgjh</button>
+            <button form="hh">hghjgjhgjhgjhgjh</button>
         </form>
 
         <div class="flex flex-col-reverse gap-3 border-t border-gray-200 px-6 py-4 sm:flex-row sm:justify-between">
